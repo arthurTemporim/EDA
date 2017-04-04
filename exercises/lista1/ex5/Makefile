@@ -1,10 +1,9 @@
 all:
-	g++ -o prog ex5.cpp
+	gcc ex5.c -o ex5
 
 run:
 	clear
-	./prog
+	./ex5
 
 clean:
-	rm ./prog
-
+	rm ./ex5
