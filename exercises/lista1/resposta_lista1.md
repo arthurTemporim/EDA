@@ -3,7 +3,7 @@
 | Aluno | Matrícula |
 |:-----:|:---------:|
 | Arthur Temporim | 14/0016759 |
-| Bruno Bragança | |
+| Bruno Bragança |  |
 
 ## Respostas
 
@@ -23,7 +23,7 @@
 	*	Antônio não é pianista.
 	*	Pianista ensaia sozinho na terça.
 	*	João ensaia com o Violinista às Quintas.
-		
+
 * Resposta:
 	*	João toca Harpa
 	*	Antônio toca Violino
@@ -44,11 +44,11 @@
 
 **Se eu perguntar para o outro guarda qual é a saída, qual será a resosta dele?**
 
-	Pois, o guarda que fala a verdade vai indicar que a saída certa é a errada,
-e o guarda que fala a mentira vai indicar também a saída errada, pois iria 
+Pois, o guarda que fala a verdade vai indicar que a saída certa é a errada,
+e o guarda que fala a mentira vai indicar também a saída errada, pois iria
 mentir sobre a resposta do guarda que fala a verdade.
 
-	Logo para se livrar, o prisioneiro deve ir para a saída contrária ao que o
+Logo para se livrar, o prisioneiro deve ir para a saída contrária ao que o
 guarda indicar.
 
 ### 3.
@@ -66,6 +66,12 @@ guarda indicar.
 em conta que o mensageiro pegou R$ 2,00, os R$ 25,00 restantes são exatamente,
 o valor pago da diária.
 
-	Não existe R$ 1,00 sumido, a questão é considerar os R$ 3,00 dados a cada 
+	Não existe R$ 1,00 sumido, a questão é considerar os R$ 3,00 dados a cada
 pessoa como desconto dos R$ 30,00 dados inicialmente.
+
+### 4.
+
+### 5.
+
+### 6.
 
