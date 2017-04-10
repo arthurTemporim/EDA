@@ -1,64 +1,13 @@
 #include <iostream>
 #include <time.h>    
 
-
 using namespace std;
 
-void heapify(int *a, int i, int n) {
-
-	int j, temp;
-	temp = a[i];
-	j = 2*i;
-
-	while (j <= n) {
-
-		if (j < n && a[j+1] > a[j]) {
-			j = j+1;
-		} if (temp > a[j]) {
-			break;
-		} else if (temp <= a[j]) {
-			a[j/2] = a[j];
-			j = 2*j;
-		}
-	}
-
-	a[j/2] = temp;
-	return;
-}
-
-void heapsort(int *a, int n) {
-
-	int i, temp;
-	for (i = n; i >= 2; i--) {
-
-		temp = a[i];
-		a[i] = a[1];
-		a[1] = temp;
-
-		heapify(a, 1, i - 1);
-	}
-}
-
-void build_heap(int *a, int n) {
-	for(int i = n/2; i >= 1; i--) {
-		heapify(a, i, n);
-	}
-}
-
-void initialize_heap(int heap[], int size_of_heap) {
-	for (int i = 1; i <= size_of_heap; i++) {
-		heap[i] = i*2;
-	}
-}
-
-void print_heap(int heap[], int size_of_heap) {
-	cout << "HEAP" << endl;
-	cout << "[";
-	for (int i = 1; i <= size_of_heap; i++) {
-		cout<< heap[i] << " ";
-	}
-	cout << "]" << endl;
-}
+void heapify(int *heap, int i, int size_of_heap);
+void heapsort(int *heap, int size_of_heap); 
+void build_heap(int *heap, int size_of_heap);
+void initialize_heap(int heap[], int size_of_heap);
+void print_heap(int heap[], int size_of_heap);
 
 int main() {
 
@@ -83,4 +32,58 @@ int main() {
 	cout << "TIME OF NORMAL SORT " << normal_sort << endl;
 
 	return 0;
+}
+
+
+void heapify(int *heap, int i, int size_of_heap) {
+	int j, temp;
+	temp = heap[i];
+	j = 2*i;
+
+	while (j <= size_of_heap) {
+
+		if (j < size_of_heap && heap[j+1] > heap[j]) {
+			j = j+1;
+		} if (temp > heap[j]) {
+			break;
+		} else if (temp <= heap[j]) {
+			heap[j/2] = heap[j];
+			j = 2*j;
+		}
+	}
+
+	heap[j/2] = temp;
+}
+
+void heapsort(int *heap, int size_of_heap) {
+	int tmp;
+	for (int i = size_of_heap; i >= 2; i--) {
+
+		tmp = heap[i];
+		heap[i] = heap[1];
+		heap[1] = tmp;
+
+		heapify(heap, 1, i - 1);
+	}
+}
+
+void build_heap(int *heap, int size_of_heap) {
+	for(int i = size_of_heap/2; i >= 1; i--) {
+		heapify(heap, i, size_of_heap);
+	}
+}
+
+void initialize_heap(int heap[], int size_of_heap) {
+	for (int i = 1; i <= size_of_heap; i++) {
+		heap[i] = i*2;
+	}
+}
+
+void print_heap(int heap[], int size_of_heap) {
+	cout << "HEAP" << endl;
+	cout << "[";
+	for (int i = 1; i <= size_of_heap; i++) {
+		cout<< heap[i] << " ";
+	}
+	cout << "]" << endl;
 }
