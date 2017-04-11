@@ -138,3 +138,7 @@ void print_heap(int heap[], int size_of_heap) {
 ```
 
 ### 7.
+
+O gráfico gerado pelo código indica que o comportamento do Radix implementado com countSort é semelhante à uma função exponencial e não linear.
+
+![Grafico](ex7.png)
