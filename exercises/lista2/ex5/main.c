@@ -36,7 +36,6 @@ int main (int argc, char *argv[]) {
   for (iterator = 0; iterator < NUMBER_VALUES; iterator++) {
     add_value(&list,  rand()%100 + 1);
   }
-  print(list->head);
   quicksort(list, 0, list->count - 1);
   print(list->head);
   return 1;
@@ -120,7 +119,6 @@ int quicksort(List *list, int pivot, int last) {
     }
     node_first = node_pivot->next;
     aux_first++;
-
     while(aux_first <= aux_last) {
       while (node_first->value < node_pivot->value) {
         aux_first++;
@@ -130,16 +128,23 @@ int quicksort(List *list, int pivot, int last) {
         aux_last--;
         node_last = node_last->previous;
       }
-      if(aux_first <= aux_last) {
+      if(aux_first < aux_last) {
         swap_node(list, node_first, node_last);
         Node *aux = node_first;
         node_first = node_last;
         node_last = aux;
         aux_first++;
         aux_last--;
+        node_first = node_first->next;
+        node_last = node_last->previous;
+      } else if (aux_first == aux_last) {
+        aux_first++;
+        aux_last--;
+        node_last = node_last->previous;
       }
     }
-    swap_node(list, node_pivot, node_last);
+    if (node_pivot != node_last)
+      swap_node(list, node_pivot, node_last);
     quicksort(list, pivot, aux_last);
     quicksort(list, aux_first, last);
   }
