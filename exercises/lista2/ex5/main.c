@@ -108,7 +108,8 @@ int swap_node(List *list, Node *first_node, Node *second_node) {
 int quicksort(List *list, int pivot, int last) {
   int aux_first, aux_last;
   Node *node_pivot, *node_first, *node_last;
-  while (pivot < last) {
+  if (pivot < last) {
+    print(list->head);
     node_pivot = list->head;
     node_last = list->tail;
     for (aux_first = 0; aux_first < pivot; aux_first++) {
@@ -138,6 +139,7 @@ int quicksort(List *list, int pivot, int last) {
         aux_last--;
       }
     }
+    swap_node(list, node_pivot, node_last);
     quicksort(list, pivot, aux_last);
     quicksort(list, aux_first, last);
   }
