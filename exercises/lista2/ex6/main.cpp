@@ -9,9 +9,17 @@ void build_heap(int *heap, int size_of_heap);
 void initialize_heap(int heap[], int size_of_heap);
 void print_heap(int heap[], int size_of_heap);
 
+
+void heapsort_insertion(int *heap, int size_of_heap) {
+	int *insertion_heap = (int*) malloc((size_of_heap+1) * sizeof(int));
+
+	for(int i=size_of_heap;i>=2;i--) {
+	}		
+}
+
 int main() {
 
-	const int size_of_heap = 1000000;
+	const int size_of_heap = 100000;
 	clock_t begin, end;
 	double normal_sort=0, insertion_sort=0;
 
@@ -23,6 +31,7 @@ int main() {
 	build_heap(heap,size_of_heap);
 	//print_heap(heap, size_of_heap);
 
+	heapsort_insertion(heap, size_of_heap);
 	begin =  clock();
 	heapsort(heap, size_of_heap);
 	end = clock();
@@ -74,8 +83,8 @@ void build_heap(int *heap, int size_of_heap) {
 }
 
 void initialize_heap(int heap[], int size_of_heap) {
-	for (int i = 1; i <= size_of_heap; i++) {
-		heap[i] = i*2;
+	for (int i = 0; i <= size_of_heap; i++) {
+		heap[i] = i;
 	}
 }
 
