@@ -13,7 +13,7 @@ Todas as respostas podem ser encontradas no seguinte repositório:
 
 ### 1.
 
-O Terceiro morador vai dizer que os outros 2 moradores também são da mesma 
+O Terceiro morador vai dizer que os outros 2 moradores também são da mesma
 ilha, pois se você está em uma ilha, os 3 moradores encontrados vão dizer
 a verdade ou mentir da mesma forma.
 
@@ -40,8 +40,9 @@ que os outros 2 também estavam rindo, percebeu que também tinha cocô nele.
 | 0 | 2 | 1 | 4 | 3 | 6 | 5 | 8 | 7 | 10 | 9  |
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9  | 10 |
 
-
 ### 5.
+
+### 6.
 
 ```
 #include <iostream>
@@ -50,18 +51,10 @@ que os outros 2 também estavam rindo, percebeu que também tinha cocô nele.
 using namespace std;
 
 void heapify(int *heap, int i, int size_of_heap);
-void heapsort(int *heap, int size_of_heap); 
+void heapsort(int *heap, int size_of_heap);
 void build_heap(int *heap, int size_of_heap);
 void initialize_heap(int heap[], int size_of_heap);
 void print_heap(int heap[], int size_of_heap);
-
-
-void heapsort_insertion(int *heap, int size_of_heap) {
-	int *insertion_heap = (int*) malloc((size_of_heap+1) * sizeof(int));
-
-	for(int i=size_of_heap;i>=2;i--) {
-	}		
-}
 
 int main() {
 
@@ -70,7 +63,7 @@ int main() {
 	double normal_sort=0, insertion_sort=0;
 
 	int *heap = (int*) malloc((size_of_heap+1) * sizeof(int));
-	initialize_heap(heap, size_of_heap);	
+	initialize_heap(heap, size_of_heap);
 	cout << "INITAL ";
 	//print_heap(heap, size_of_heap);
 
@@ -142,10 +135,6 @@ void print_heap(int heap[], int size_of_heap) {
 	}
 	cout << "]" << endl;
 }
-
 ```
 
-### 6.
-
 ### 7.
-
