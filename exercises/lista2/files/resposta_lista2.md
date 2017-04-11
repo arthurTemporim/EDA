@@ -43,7 +43,7 @@ que os outros 2 também estavam rindo, percebeu que também tinha cocô nele.
 ### 5.
 
 ```
-#include <stdio.h>
+include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -217,7 +217,6 @@ void print_end(Node *tmp) {
 
   // exiting print
 }
-
 ```
 
 ### 6.
