@@ -13,9 +13,17 @@ Todas as respostas podem ser encontradas no seguinte repositório:
 
 ### 1.
 
+O Terceiro morador vai dizer que os outros 2 moradores também são da mesma 
+ilha, pois se você está em uma ilha, os 3 moradores encontrados vão dizer
+a verdade ou mentir da mesma forma.
+
 ### 2.
 
+
+
 ### 3.
+
+Por que ele viu "cocô" de coruja na cara dos outros.
 
 ### 4.
 
