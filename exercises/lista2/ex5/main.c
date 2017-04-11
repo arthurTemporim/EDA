@@ -22,6 +22,7 @@ struct _list {
 int add_value(List**, int);
 Node *add_node(int);
 int swap_node(List *, Node*, Node*);
+int quicksort(List *, int, int);
 void print(Node*);
 void print_end(Node*);
 
@@ -36,7 +37,7 @@ int main (int argc, char *argv[]) {
     add_value(&list,  rand()%100 + 1);
   }
   print(list->head);
-  swap_node(list, list->head, list->head->next);
+  quicksort(list, 0, list->count - 1);
   print(list->head);
   return 1;
 }
@@ -83,6 +84,8 @@ int swap_node(List *list, Node *first_node, Node *second_node) {
   }
   if (second_node->next == second_node) {
     second_node->next = first_node;
+  } else {
+    // do nothing
   }
 
   if (first_node->next != NULL) {
@@ -98,25 +101,46 @@ int swap_node(List *list, Node *first_node, Node *second_node) {
     list->head = second_node;
   }
   second_node->next->previous = second_node;
-  
-  // first_node->next = second_node->next;
-  // if (first_node->next != NULL) {
-  //   first_node->next->previous = first_node;
-  // } else {
-  //   list->tail = first_node;
-  // }
-  //
-  // first_node->previous = second_node->previous;
-  // first_node->previous->next = first_node;
-  // second_node->previous = first_previous;
-  // if (first_previous != NULL) {
-  //   second_node->previous->next = second_node;
-  // } else {
-  //   list->head = second_node;
-  // }
-  // second_node->next = first_next;
-  // second_node->next->previous = second_node;
 
+  return 1;
+}
+
+int quicksort(List *list, int pivot, int last) {
+  int aux_first, aux_last;
+  Node *node_pivot, *node_first, *node_last;
+  while (pivot < last) {
+    node_pivot = list->head;
+    node_last = list->tail;
+    for (aux_first = 0; aux_first < pivot; aux_first++) {
+      node_pivot = node_pivot->next;
+    }
+    for (aux_last = list->count - 1; aux_last > last; aux_last--) {
+      node_last = node_last->previous;
+    }
+    node_first = node_pivot->next;
+    aux_first++;
+
+    while(aux_first <= aux_last) {
+      while (node_first->value < node_pivot->value) {
+        aux_first++;
+        node_first = node_first->next;
+      }
+      while (node_last->value > node_pivot->value) {
+        aux_last--;
+        node_last = node_last->previous;
+      }
+      if(aux_first <= aux_last) {
+        swap_node(list, node_first, node_last);
+        Node *aux = node_first;
+        node_first = node_last;
+        node_last = aux;
+        aux_first++;
+        aux_last--;
+      }
+    }
+    quicksort(list, pivot, aux_last);
+    quicksort(list, aux_first, last);
+  }
   return 1;
 }
 
