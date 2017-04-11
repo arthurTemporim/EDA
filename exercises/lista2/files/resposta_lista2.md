@@ -81,7 +81,6 @@ int main (int argc, char *argv[]) {
   for (iterator = 0; iterator < NUMBER_VALUES; iterator++) {
     add_value(&list,  rand()%100 + 1);
   }
-  print(list->head);
   quicksort(list, 0, list->count - 1);
   print(list->head);
   return 1;
@@ -153,7 +152,8 @@ int swap_node(List *list, Node *first_node, Node *second_node) {
 int quicksort(List *list, int pivot, int last) {
   int aux_first, aux_last;
   Node *node_pivot, *node_first, *node_last;
-  while (pivot < last) {
+  if (pivot < last) {
+    print(list->head);
     node_pivot = list->head;
     node_last = list->tail;
     for (aux_first = 0; aux_first < pivot; aux_first++) {
@@ -164,7 +164,6 @@ int quicksort(List *list, int pivot, int last) {
     }
     node_first = node_pivot->next;
     aux_first++;
-
     while(aux_first <= aux_last) {
       while (node_first->value < node_pivot->value) {
         aux_first++;
@@ -174,15 +173,23 @@ int quicksort(List *list, int pivot, int last) {
         aux_last--;
         node_last = node_last->previous;
       }
-      if(aux_first <= aux_last) {
+      if(aux_first < aux_last) {
         swap_node(list, node_first, node_last);
         Node *aux = node_first;
         node_first = node_last;
         node_last = aux;
         aux_first++;
         aux_last--;
+        node_first = node_first->next;
+        node_last = node_last->previous;
+      } else if (aux_first == aux_last) {
+        aux_first++;
+        aux_last--;
+        node_last = node_last->previous;
       }
     }
+    if (node_pivot != node_last)
+      swap_node(list, node_pivot, node_last);
     quicksort(list, pivot, aux_last);
     quicksort(list, aux_first, last);
   }
@@ -210,6 +217,7 @@ void print_end(Node *tmp) {
 
   // exiting print
 }
+
 ```
 
 ### 6.
